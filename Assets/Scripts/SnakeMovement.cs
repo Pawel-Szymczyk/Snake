@@ -71,6 +71,7 @@ public class SnakeMovement : MonoBehaviour
         Transform newPart = (Instantiate(bodyPrefab, BodyParts[BodyParts.Count - 1].position, BodyParts[BodyParts.Count - 1].rotation) as GameObject).transform;
 
         newPart.SetParent(transform);
+        
 
         // First element will always touch the snake head that is why it should not be check for collision and the tag should not be attached
         if (BodyParts.Count > 1)

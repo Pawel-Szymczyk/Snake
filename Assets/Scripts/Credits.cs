@@ -8,8 +8,5 @@ public class Credits : MonoBehaviour
         SceneManager.LoadScene(0); // Load Menu 
     }
 
-    public void Quit()
-    {
-        Application.Quit();
-    }
+
 }
