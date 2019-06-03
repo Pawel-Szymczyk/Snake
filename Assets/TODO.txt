@@ -1,0 +1,30 @@
+﻿## TODO ##
+
+1) Main Menu
+	- New design 
+	- Add options btn 
+	- Add scores btn
+	- Add quit btn
+
+	1.1) Scores
+	- Add database
+	- Connect with server 
+	- store basic user data in cloud database : place, name & score
+	- print out 100 best scores in the table and your the user best score ex. 1...100...2568 Pawel 100pkt
+	- save data to db 
+
+2) Game 
+- add pause option
+- redesign pause menu
+- redesign win/loose menu
+- add new levels
+- add scoring
+- add better graphics
+- add pause button in the upper left window corner
+- use user name in the win/loose message
+- fix other bugs 
+- add other things to eat with different types of bonuses 
+	- pig
+	- rat
+	- ball
+	- etc. 

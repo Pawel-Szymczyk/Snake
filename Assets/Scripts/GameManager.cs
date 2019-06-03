@@ -7,12 +7,16 @@ public class GameManager : MonoBehaviour
 
     private int score = 0;
     private bool gameHasEnded = false;
+    private static bool gameIsPaused = false;
 
     public float restartDelay = 1f;
 
     // Failed level screen (panel)...
     public GameObject failedLevelUi;
     //public GameObject completeLevelUI;
+
+    public GameObject pauseMenuUI;
+
 
     public Text textComment;
 
@@ -64,6 +68,26 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void PauseGame()
+    {
+        // bring up pause menu 
+        // freeze time in the game
+        // change pausegame variable from false to true
+
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;    // freeze the game
+        gameIsPaused = true;    // not needed?
+
+    }
+
+    public void ResumeGame()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;    // unfreeze the game
+        gameIsPaused = false;   // not needed?
+    }
+
+
     // restart when press btn 
     public void RestartGameEvent()
     {
@@ -75,12 +99,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void Quit()
-    {
-        Application.Quit();
-    }
 
-    public void Menu()
+    public void MainMenu()
     {
         SceneManager.LoadScene(0); // Load Menu 
     }
