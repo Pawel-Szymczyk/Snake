@@ -118,7 +118,7 @@ public class SnakeMovement : MonoBehaviour
         
 
         // First element will always touch the snake head that is why it should not be check for collision and the tag should not be attached
-        if (BodyParts.Count > 1)
+        if (BodyParts.Count > 2)
         {
             newPart.tag = "SnakeBody";
         }

@@ -36,10 +36,25 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public GameObject pauseMenuUI;
 
+
+
     /// <summary>
     /// 
     /// </summary>
-    public Text textComment;
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1f;    // unfreeze the game
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 
     // New Level
     // when snake scores ex. 100 points level up... 
@@ -59,29 +74,40 @@ public class GameManager : MonoBehaviour
     {
         return score.ToString();
     }
-    
+
     /// <summary>
     /// 
     /// </summary>
     public void CompleteLevel()
     {
-      //  completeLevelUI.SetActive(true);
+        //  completeLevelUI.SetActive(true);
     }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="failedReason"></param>
     public void FailedLevel(string failedReason)
     {
         if (gameHasEnded == false)
         {
             gameHasEnded = true;
+
+           
+            GameObject.Find("PauseButton").SetActive(false);
+
+
             failedLevelUi.SetActive(true);
 
-            this.textComment.text = failedReason;
+            //this.failureComment.GetComponent<Text>().text = failedReason;
+            //this.failureComment = GameObject.Find("Comment");
+            
+
+           
+
 
             Debug.Log("GAME OVER");
+
+            
         }
     }
 
@@ -101,7 +127,7 @@ public class GameManager : MonoBehaviour
         //}
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);  // This code will load next level (change this to the last scence index number);
 
-        
+
     }
 
     /// <summary>
@@ -127,6 +153,9 @@ public class GameManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;    // unfreeze the game
         gameIsPaused = false;   // not needed?
+        //var btn = GameObject.FindGameObjectsWithTag("PauseButton");
+
+        //btn.SetActive(true);
     }
 
     /// <summary>
