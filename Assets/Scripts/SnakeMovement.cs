@@ -3,26 +3,67 @@ using System.Collections.Generic;
 
 public class SnakeMovement : MonoBehaviour
 {
-   
+   /// <summary>
+   /// 
+   /// </summary>
     public Joystick joystick;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public GameObject bodyPrefab;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public Transform curBodyPart;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public Transform prevBodyPart;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public List<Transform> BodyParts = new List<Transform>();
 
+    /// <summary>
+    /// 
+    /// </summary>
     public int beginSize;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public float dis;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public float mindistance = 0.25f;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public float moveSpeed = 1f;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public float rotationSpeed = 50f;
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void FixedUpdate()
     {
         Move();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public void Move()
     {
         float moveXAxis = (joystick.Horizontal * moveSpeed) * Time.smoothDeltaTime;
@@ -66,6 +107,9 @@ public class SnakeMovement : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public void AddBodyPart()
     {
         Transform newPart = (Instantiate(bodyPrefab, BodyParts[BodyParts.Count - 1].position, BodyParts[BodyParts.Count - 1].rotation) as GameObject).transform;

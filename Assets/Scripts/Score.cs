@@ -3,9 +3,19 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public Transform player;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public Text scoreText;
 
+    /// <summary>
+    /// 
+    /// </summary>
     // Update is called once per frame
     void Update()
     {

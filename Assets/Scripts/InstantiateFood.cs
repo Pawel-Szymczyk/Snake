@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class InstantiateFood : MonoBehaviour
 {
-
+    /// <summary>
+    /// 
+    /// </summary>
     public GameObject food = null;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public float foodPosX = 9.0f;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public float foodPosZ = 19.0f;
 
+    /// <summary>
+    /// 
+    /// </summary>
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +30,9 @@ public class InstantiateFood : MonoBehaviour
         Instantiate(food, position, Quaternion.identity);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     // Generate food ...
     public void GenerateFood()
     {

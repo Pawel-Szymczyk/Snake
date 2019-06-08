@@ -2,9 +2,14 @@
 
 public class SnakeCollision : MonoBehaviour
 {
-
+    /// <summary>
+    /// 
+    /// </summary>
     public SnakeMovement snakeMovement;
     
+    /// <summary>
+    /// 
+    /// </summary>
     private void OnCollisionEnter(Collision collision)
     {
         
