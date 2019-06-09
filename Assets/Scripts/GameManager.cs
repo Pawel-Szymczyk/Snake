@@ -1,13 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections.ObjectModel;
 
 public class GameManager : MonoBehaviour
 {
     /// <summary>
-    /// 
+    /// Initial player score.
     /// </summary>
-    private int score = 0;
+    public int score = 0;
+
+    /// <summary>
+    /// Player name set in the options panel.
+    /// </summary>
+    public InputField playerName;
+
+    public string username;
 
     /// <summary>
     /// 
@@ -36,7 +44,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public GameObject pauseMenuUI;
 
-
+    public Collection<PlayerData> list = new Collection<PlayerData>();
 
     /// <summary>
     /// 
@@ -83,16 +91,25 @@ public class GameManager : MonoBehaviour
         //  completeLevelUI.SetActive(true);
     }
 
+
+    public void StorePlayerUsername()
+    {
+        PlayerPrefs.SetString("username", this.playerName.text);
+        //string finalScore = GetScore();
+        //string playerName = this.playerName.text;
+    }
+
+
     /// <summary>
     /// 
     /// </summary>
     public void FailedLevel(string failedReason)
     {
+
         if (gameHasEnded == false)
         {
             gameHasEnded = true;
-
-           
+            
             GameObject.Find("PauseButton").SetActive(false);
 
 
@@ -100,10 +117,13 @@ public class GameManager : MonoBehaviour
 
             //this.failureComment.GetComponent<Text>().text = failedReason;
             //this.failureComment = GameObject.Find("Comment");
+
+
+            // Get username from local memory and  Save username and score to file
+            this.username = PlayerPrefs.GetString("username");
+            SaveSystem.SavePlayer(this);
+
             
-
-           
-
 
             Debug.Log("GAME OVER");
 
@@ -112,10 +132,24 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Get the list of score and return it to collection used in ui table.
+    /// </summary>
+    public void LoadScoreTable()
+    {
+        Collection<PlayerData> data = SaveSystem.LoadPlayer();
+
+        list = data;
+
+    }
+
+    /// <summary>
     /// 
     /// </summary>
     public void EndGame()
     {
+
+       
+
         //if (gameHasEnded == false)
         //{
         //    gameHasEnded = true;
